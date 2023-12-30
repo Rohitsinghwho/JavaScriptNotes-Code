@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dom Manipulation-3</title>
+</head>
+<body>
+    <!-- everthing is in js -->
+    <ul class="languages">
+        <li>python</li>
+    </ul>
+</body>
+
+<script>
+    // set background IIFI
+    ((color,textColor)=>{
+        document.body.style.color=textColor
+        document.body.style.backgroundColor= color;
+    })("#2f2f2f","white");
+   
+    // selecting items from dom using a function
+    const element= document.querySelector('.languages');
+    console.log(element)
+
+    // add items inside the li
+    // first way to add item
+    // const AddItems= (item)=>{
+    //     const li= document.createElement('li');
+    //     li.innerHTML=item
+    //     element.append(li)
+    // }
+
+    // second way
+    const AddItems= (item)=>{
+        const li= document.createElement('li');
+        const newNode= document.createTextNode(item)
+        li.append(newNode)
+        element.append(li)
+    }
+    AddItems('Javascript')
+    AddItems('typescript')
+    AddItems('golang')
+    AddItems('swift')
+
+    // Edit the element
+    // editing the nth node
+    const EditElement= (replacement)=>{
+        const newLi= document.createElement('li')
+        newLi.append(replacement)
+        const item= document.querySelector("li:nth-child(3)")
+        item.replaceWith(newLi);
+    }
+   EditElement("Cpp")
+
+
+//    editing the last node
+const EditElementLast= (replacement)=>{
+        const newLi= document.createElement('li')
+        newLi.append(replacement)
+        const item= document.querySelector("li:last-child")
+        item.replaceWith(newLi);
+    }
+  EditElementLast("C Programming")
+
+
+//  remove the element
+const item=document.querySelector('li:first-child');
+// element.removeChild(item) //This is also a way
+item.remove()  //this is also a way//
+
+
+
+</script>
+</html>

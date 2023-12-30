@@ -1,0 +1,59 @@
+<!-- Dom means document object model -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM MANIP</title>
+</head>
+<body style="background-color: #2f2f2f; color: white;">
+     <div class="WeekDays">
+        <h2 class="dayone">Monday</h2>
+        <h2>Tuesday</h2>
+        <h2>Wednesday</h2>
+        <h2 class="dayfour">Thrusday</h2>
+     </div>
+</body>
+<script>
+    // Accessing the DOM using JavaScript
+    let weekdays= document.querySelector('.WeekDays');
+    // console.log(weekdays);
+
+    // Accessing the children of the parent
+    let days = weekdays.children;  //it return an html collection
+    // console.log(days)
+    // we can access individual day by index
+    let firstDay= days[0].innerHTML;
+    // console.log(firstDay)
+
+    // we can also access all the days using for loop
+    for (let i=0 ;i<days.length; i++){
+            console.log(days[i].style.color="red");
+    }
+
+    // we can convert this html coll to arrays like
+    let arrDays= Array.from(days);
+    // console.log(arrDays);
+    // console.log(arrDays.filter((num)=>num.innerHTML.length>6))
+    // //here we colored all the day to red using map 
+    // arrDays.map((num)=>{
+    //     return num.style.color='red';
+    // })
+
+
+    // we want to access the siblings of monday
+    // there are two ways to do it
+    // one is direct another is through parents and then nextElementSibling property
+    // console.log(days[1]);   //tuesday direct one
+    // console.log(days[1].nextElementSibling); // tuesday indirect way
+
+    // console.log(days[1].nextSibling)
+
+    // if we want to know the parent of a child element then?
+    console.log(days[1].parentNode)
+    // if we want to know the end node
+    console.log(days[1].lastChild)
+    // this is how to append on element
+    // days[1].append(" I am append")
+    
+
+</script>
+</html>
